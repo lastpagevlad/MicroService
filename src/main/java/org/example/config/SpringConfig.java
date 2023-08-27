@@ -28,6 +28,9 @@ public class SpringConfig {
         dataSource.setPassword("soad13");
         return dataSource;
     }
-
+    @Bean
+    public JdbcTemplate jdbcTemplate(){
+        return new JdbcTemplate();
+    }
 
 }

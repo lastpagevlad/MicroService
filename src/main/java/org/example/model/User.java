@@ -10,17 +10,26 @@ public class User {
     @NotEmpty(message = "name should not be empty")
     @Size(min = 2, max = 30, message = "The count of name symbols should be from 2 to 30")
     private String name;
-    private String typeMessage;
     @Email(message = "email should be valid")
     private String email;
 
+    private int bus_id;
+
+    public int getBus_id() {
+        return bus_id;
+    }
+
+    public void setBus_id(int bus_id) {
+        this.bus_id = bus_id;
+    }
+
     public User(){}
 
-    public User(int id, String name, String typeMessage, String email){
+    public User(int id, String name, String email, int bus_id){
         this.id = id;
         this.name = name;
-        this.typeMessage = typeMessage;
         this.email = email;
+        this.bus_id = bus_id;
     }
 
     public int getId() {
@@ -39,13 +48,6 @@ public class User {
         this.name = name;
     }
 
-    public String getTypeMessage() {
-        return typeMessage;
-    }
-
-    public void setTypeMessage(String typeMessage) {
-        this.typeMessage = typeMessage;
-    }
 
     public String getEmail() {
         return email;
