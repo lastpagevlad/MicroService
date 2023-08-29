@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98aa0606-251d-4111-bf45-a312612072f3" name="Changes" comment="Добавлена база, таблица сообщения">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/BusMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Bus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/MessageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/MessageMapper.java" afterDir="false" />
+    <list default="true" id="98aa0606-251d-4111-bf45-a312612072f3" name="Changes" comment="Добавлена шина">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +35,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Jprojects/SpringLes/MicroService/MicroService&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d65f63295845100e890b9591dadc720e&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Jprojects/MicroServiceMessage",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "spring.configuration.checksum": "d65f63295845100e890b9591dadc720e"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.79" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.79" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -59,7 +62,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="c48ff4a9-36b0-4201-96cc-25446342207c" />
+        <option name="BASE_DIRECTORY_NAME" value="3a3892e2-ad47-494b-bb1a-94f8854979bf" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -67,7 +70,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="63474" />
+        <option name="DEBUG_PORT" value="59491" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -147,7 +150,8 @@
       <updated>1692631750476</updated>
       <workItem from="1692631751873" duration="5326000" />
       <workItem from="1692807151811" duration="4134000" />
-      <workItem from="1693142336574" duration="2051000" />
+      <workItem from="1693142336574" duration="2676000" />
+      <workItem from="1693326167051" duration="6617000" />
     </task>
     <task id="LOCAL-00001" summary="Добавлены модель и маппер пользователя">
       <created>1692728146254</created>
@@ -163,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693144128592</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавлена шина">
+      <created>1693144416271</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693144416271</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +194,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Добавлены модель и маппер пользователя" />
     <MESSAGE value="Добавлена база, таблица сообщения" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлена база, таблица сообщения" />
+    <MESSAGE value="Добавлена шина" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлена шина" />
   </component>
 </project>
