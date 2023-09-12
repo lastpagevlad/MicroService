@@ -1,0 +1,16 @@
+springdoc:
+  show-actuator: true
+
+spring:
+  # почитай про это (в общих чертах можно сгенерить таблицы бд при старте по энтити классам (использовать только на пет проектах))
+  jpa:
+    hibernate:
+      ddl-auto: create
+  liquibase:
+    change-log: classpath:db/changelog/changelog.xml
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: soad13
+    url: jdbc:postgresql://localhost:5433/mailing_service
+

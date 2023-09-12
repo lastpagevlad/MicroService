@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+        <!--    здесь объявляем что нужно исполнить
+                почитай как работает liquibase - https://docs.liquibase.com/home.html
+                у каталогов должно быть строго такое название, только если ты не переопределишь в пропертях
+        -->
+   <include file="initial.sql" relativeToChangelogFile="true"/>
+    <!--    <include file="change1.sql" relativeToChangelogFile="true"/>-->
+
+</databaseChangeLog>
