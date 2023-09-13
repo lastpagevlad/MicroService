@@ -18,27 +18,30 @@ public class MessageServiceImpl implements MessageService {
 
 
     @Override
-    public void create(Message message) {
+    public Message create(Message message) {
 
+        return messageRepository.save(message);
     }
 
     @Override
     public List<Message> readAll() {
-        return null;
+        return messageRepository.findAll();
     }
 
     @Override
-    public Message read(int message_id) {
-        return null;
+    public Message read(int id) {
+        return messageRepository.findById(id).orElseThrow();
     }
 
     @Override
-    public boolean update(Message message, int message_id) {
-        return false;
+    public Message update(Message message, int id) {
+        var updateMessage = messageRepository.findById(id).orElseThrow();
+        updateMessage.setMessageSend(message.getMessageSend());
+        return messageRepository.save(updateMessage);
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int id) {
+        messageRepository.deleteById(id);
     }
 }

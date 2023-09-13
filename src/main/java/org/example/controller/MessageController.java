@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.store.entity.Message;
 import org.example.service.MessageService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,6 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/messages") // общую часть эндпоинта можно вынести сюда TODO сделай так же для UserController
 @RequiredArgsConstructor // можно обойтись этой аннотацией
+@Tag(name = "Управление сообщениями (Message)")
 public class MessageController {
 
     private final MessageService messageService;
@@ -39,9 +41,8 @@ public class MessageController {
             )
     })
     @PostMapping//вынес в RequestMapping
-    public ResponseEntity<?> create(@RequestBody Message message){
-        messageService.create(message);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<Message> create(@RequestBody Message message){
+        return  ResponseEntity.ok(messageService.create(message));
     }
 
     @Operation(summary = "Отображение сообщений")
@@ -90,11 +91,8 @@ public class MessageController {
             )
     })
     @PutMapping(value = "/{id}")//вынес в RequestMapping
-    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody Message message){
-        final boolean updated = messageService.update(message, id);
-        return updated
-                ? new ResponseEntity<>(HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    public ResponseEntity<Message> update(@PathVariable(name = "id") int id, @RequestBody Message message){
+        return  ResponseEntity.ok(messageService.update(message,id));
     }
 
     @Operation(summary = "Удаление сообщения")
@@ -108,10 +106,8 @@ public class MessageController {
             )
     })
     @DeleteMapping(value = "/{id}")//вынес в RequestMapping
-    public ResponseEntity<?> delete(@PathVariable(name = "id") int id){
-        final boolean deleted = messageService.delete(id);
-        return deleted
-                ? new ResponseEntity<>(HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable(name = "id") int id){
+        messageService.delete(id);
     }
 }
