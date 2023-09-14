@@ -9,9 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,12 +20,8 @@ import java.util.List;
 @RequiredArgsConstructor
 @Tag(name = "Управление пользователями (User)")
 public class UserController {
-    private final UserService userService;
 
-//    @Autowired
-//    public UserController(UserService userService){
-//        this.userService = userService;
-//    }
+    private final UserService userService;
 
     @Operation(summary = "Добавление пользователя")
     @ApiResponses(value = {
@@ -42,7 +36,6 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> create(@RequestBody User user){
        return  ResponseEntity.ok(userService.create(user));
-//        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @Operation(summary = "Отображение пользователей")
@@ -62,6 +55,7 @@ public class UserController {
                 ? new ResponseEntity<>(users,HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
     @Operation(summary = "Отображение пользователя по идентификатору")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
@@ -79,6 +73,7 @@ public class UserController {
                 ? new ResponseEntity<>(user, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
     //Есть два типа изменений @Patch и @Put. Метод @Patch изменняет точечно, а Put, как передал
     @Operation(summary = "Обновление пользователя")
     @ApiResponses(value = {
