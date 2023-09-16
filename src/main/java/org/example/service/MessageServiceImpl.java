@@ -19,7 +19,7 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public Message create(Message message) {
-        int n = 5;
+        int n = 4;
         return messageRepository.save(message); //проверка создания запроса
     }
 
