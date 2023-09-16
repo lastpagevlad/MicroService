@@ -42,6 +42,5 @@ public class User {
     @Email(message = "Email shpuld be valid")
     private String email;
 
-    @OneToMany(mappedBy = "user")
-    private List<Message> messages = List.of();
+
 }

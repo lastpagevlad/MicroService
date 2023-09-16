@@ -5,7 +5,8 @@ spring:
   # почитай про это (в общих чертах можно сгенерить таблицы бд при старте по энтити классам (использовать только на пет проектах))
   jpa:
     hibernate:
-      ddl-auto: create
+      naming:
+        physical-strategy: org.example.utils.SnakePhysicalNamingStrategy
   liquibase:
     change-log: classpath:db/changelog/changelog.xml
   datasource:
