@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
         updateUser.setSurname(user.getSurname());
         updateUser.setLastname(user.getLastname());
         updateUser.setEmail(user.getEmail());
-        return userRepository.save(updateUser); //тестовый реквест сотая попытка
+        return userRepository.save(updateUser); //тестовый реквест сотая попытка жесть
     }
 
     @Override
