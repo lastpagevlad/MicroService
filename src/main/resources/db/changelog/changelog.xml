@@ -6,6 +6,7 @@
                 почитай как работает liquibase - https://docs.liquibase.com/home.html
                 у каталогов должно быть строго такое название, только если ты не переопределишь в пропертях
         -->
+
    <include file="initial.sql" relativeToChangelogFile="true"/>
     <!--    <include file="change1.sql" relativeToChangelogFile="true"/>-->
 

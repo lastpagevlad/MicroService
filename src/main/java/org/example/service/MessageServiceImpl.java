@@ -37,6 +37,7 @@ public class MessageServiceImpl implements MessageService {
     public Message update(Message message, int id) {
         var updateMessage = messageRepository.findById(id).orElseThrow();
         updateMessage.setMessageSend(message.getMessageSend());
+        updateMessage.setDate_sending(message.getDate_sending());
         return messageRepository.save(updateMessage);
     }
 

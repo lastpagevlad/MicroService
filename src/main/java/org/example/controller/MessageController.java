@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/messages") // общую часть эндпоинта можно вынести сюда TODO сделай так же для UserController
+@RequestMapping("/message") // общую часть эндпоинта можно вынести сюда TODO сделай так же для UserController
 @RequiredArgsConstructor // можно обойтись этой аннотацией
 @Tag(name = "Управление сообщениями (Message)")
 public class MessageController {
