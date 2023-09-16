@@ -20,7 +20,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public Message create(Message message) {
 
-        return messageRepository.save(message); //проверка создания pull request
+        return messageRepository.save(message); //проверка создания
     }
 
     @Override
