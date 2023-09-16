@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.relational.core.mapping.Column;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,6 +24,8 @@ public class Message {
     private Integer id;
     @Column
     private String messageSend;
+    @Column
+    private Date date_sending;
 
     @ManyToOne
     private User user;
