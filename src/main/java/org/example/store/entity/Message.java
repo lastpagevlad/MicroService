@@ -1,9 +1,8 @@
 package org.example.store.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +20,18 @@ import java.util.Date;
 public class Message {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
+
+    @NotBlank(message = "messageSend don't exist")
     @Column
     private String messageSend;
-    @Column
-    private Date date_sending;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column
+    private Date dateSending;
+
+    @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;
 }

@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.example.store.entity.Message;
 import org.example.service.MessageService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -12,13 +13,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Validated
 @RestController
-@RequestMapping("/message") // общую часть эндпоинта можно вынести сюда TODO сделай так же для UserController
-@RequiredArgsConstructor // можно обойтись этой аннотацией
+@RequestMapping("/message")
+@RequiredArgsConstructor
 @Tag(name = "Управление сообщениями (Message)")
 public class MessageController {
 
@@ -91,7 +93,7 @@ public class MessageController {
             )
     })
     @PutMapping(value = "/{id}")//вынес в RequestMapping
-    public ResponseEntity<Message> update(@PathVariable(name = "id") int id, @RequestBody Message message){
+    public ResponseEntity<Message> update(@PathVariable(name = "id") int id, @RequestBody @Validated Message message){
         return  ResponseEntity.ok(messageService.update(message,id));
     }
 
