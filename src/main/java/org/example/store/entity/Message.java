@@ -23,7 +23,7 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
 
-    @NotBlank(message = "messageSend don't exist")
+    @NotBlank(message = "messageSend does not exist")
     @Column
     private String messageSend;
 

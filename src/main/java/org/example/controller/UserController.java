@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import jakarta.validation.Valid;
 import org.example.store.entity.User;
 import org.example.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -11,10 +12,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Validated
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
@@ -34,7 +36,7 @@ public class UserController {
             )
     })
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User user){
+    public ResponseEntity<User> create(@Valid @RequestBody User user){
        return  ResponseEntity.ok(userService.create(user));
     }
 
@@ -74,7 +76,7 @@ public class UserController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    //Есть два типа изменений @Patch и @Put. Метод @Patch изменняет точечно, а Put, как передал
+
     @Operation(summary = "Обновление пользователя")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
@@ -86,7 +88,7 @@ public class UserController {
             )
     })
     @PutMapping(value = "/{id}")
-    public ResponseEntity<User> update(@PathVariable(name = "id") int id, @RequestBody User user){
+    public ResponseEntity<User> update(@PathVariable(name = "id") int id,@Valid @RequestBody User user){
         return  ResponseEntity.ok(userService.update(user,id));
     }
 

@@ -10,7 +10,5 @@ import java.util.List;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 
-    // такое объявление методов чувствительно к названию, тк по нему генерит то что-то будет внутри
-    // про это тоже надо почитать - QueryByExampleExecutor
-//    List<Message> findAllByName(String name);
+
 }

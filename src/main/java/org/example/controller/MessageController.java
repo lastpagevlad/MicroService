@@ -26,11 +26,6 @@ public class MessageController {
 
     private final MessageService messageService;
 
-    // можно обойтись той ^ аннотацией (она работает для final полей)
-//    @Autowired
-//    public MessageController(MessageService messageService){
-//        this.messageService = messageService;
-//    }
 
     @Operation(summary = "Добавление сообщения")
     @ApiResponses(value = {
@@ -42,8 +37,8 @@ public class MessageController {
                     content = @Content(schema = @Schema(implementation = String.class))
             )
     })
-    @PostMapping//вынес в RequestMapping
-    public ResponseEntity<Message> create(@RequestBody Message message){
+    @PostMapping
+    public ResponseEntity<Message> create(@Valid @RequestBody Message message){
         return  ResponseEntity.ok(messageService.create(message));
     }
 
@@ -57,7 +52,7 @@ public class MessageController {
                     content = @Content(schema = @Schema(implementation = String.class))
             )
     })
-    @GetMapping//вынес в RequestMapping
+    @GetMapping
     public ResponseEntity<List<Message>> read() {
         final List<Message> messages = messageService.readAll();
         return messages!=null && !messages.isEmpty()
@@ -74,8 +69,8 @@ public class MessageController {
                     content = @Content(schema = @Schema(implementation = String.class))
             )
     })
-    @GetMapping(value = "/{id}")//вынес в RequestMapping
-    public ResponseEntity<Message> read(@PathVariable(name = "id") int id){
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Message> read( @PathVariable(name = "id") int id){
         final Message message = messageService.read(id);
         return message!=null
                 ? new ResponseEntity<>(message, HttpStatus.OK)
@@ -92,8 +87,8 @@ public class MessageController {
                     content = @Content(schema = @Schema(implementation = String.class))
             )
     })
-    @PutMapping(value = "/{id}")//вынес в RequestMapping
-    public ResponseEntity<Message> update(@PathVariable(name = "id") int id, @RequestBody @Validated Message message){
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Message> update(@PathVariable(name = "id") int id, @Valid @RequestBody @Validated Message message){
         return  ResponseEntity.ok(messageService.update(message,id));
     }
 
@@ -107,7 +102,7 @@ public class MessageController {
                     content = @Content(schema = @Schema(implementation = String.class))
             )
     })
-    @DeleteMapping(value = "/{id}")//вынес в RequestMapping
+    @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(name = "id") int id){
         messageService.delete(id);
