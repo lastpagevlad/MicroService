@@ -2,6 +2,7 @@ package org.example.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.example.dto.MessageDto;
 import org.example.store.entity.Message;
 import org.example.service.MessageService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -53,8 +54,8 @@ public class MessageController {
             )
     })
     @GetMapping
-    public ResponseEntity<List<Message>> read() {
-        final List<Message> messages = messageService.readAll();
+    public ResponseEntity<List<MessageDto>> read() {
+        final List<MessageDto> messages = messageService.readAll();
         return messages!=null && !messages.isEmpty()
                 ? new ResponseEntity<>(messages,HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -70,8 +71,8 @@ public class MessageController {
             )
     })
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Message> read( @PathVariable(name = "id") int id){
-        final Message message = messageService.read(id);
+    public ResponseEntity<MessageDto> read(@Valid @PathVariable(name = "id") int id){
+        final MessageDto message = messageService.read(id);
         return message!=null
                 ? new ResponseEntity<>(message, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);

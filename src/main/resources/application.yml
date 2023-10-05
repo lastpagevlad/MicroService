@@ -4,6 +4,7 @@ springdoc:
 spring:
   # почитай про это (в общих чертах можно сгенерить таблицы бд при старте по энтити классам (использовать только на пет проектах))
   jpa:
+    show-sql=true:
     hibernate:
       naming:
         physical-strategy: org.example.utils.SnakePhysicalNamingStrategy

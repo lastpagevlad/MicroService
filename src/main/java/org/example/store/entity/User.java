@@ -1,5 +1,6 @@
 package org.example.store.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 import org.springframework.lang.NonNull;
 
 import java.util.List;
@@ -42,5 +44,8 @@ public class User {
     @Email(message = "Email shpuld be valid")
     private String email;
 
-
+//    @BatchSize(size = 50)
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "user")
+//    private List<Message> messageList;
 }

@@ -1,5 +1,6 @@
 package org.example.store.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -31,7 +32,8 @@ public class Message {
     @Column
     private Date dateSending;
 
+//    @JsonManagedReference
     @JoinColumn(name = "user_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 }

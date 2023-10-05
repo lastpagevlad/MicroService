@@ -6,8 +6,8 @@ import java.util.Date;
 
 @Data
 public class MessageDto {
-    Integer Id;
+    Integer id;
     String messageSend;
     Date dateSending;
-    User user;
+    Integer userId;
 }

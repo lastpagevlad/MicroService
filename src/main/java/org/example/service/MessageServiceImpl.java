@@ -1,21 +1,16 @@
 package org.example.service;
 
-import jakarta.validation.ValidationException;
+import org.example.dto.MessageDto;
 import org.example.store.entity.Message;
 import org.example.store.repository.MessageRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.example.store.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.example.utils.MappingUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpServerErrorException;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,14 +28,15 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public List<Message> readAll() {
-        return messageRepository.findAll();
+    public List<MessageDto> readAll() {
+        return messageRepository.findAll().stream().map(MappingUtils::mapToMessageDto).collect(Collectors.toList());
     }
 
     @Override
-    public Message read(int id) {
-        return messageRepository.findById(id).orElseThrow(() ->
-                new NoSuchElementException(String.format("message with id: %s not found", id)));
+    public MessageDto read(int id) {
+        var a = MappingUtils.mapToMessageDto(messageRepository.findById(id).orElseThrow(() ->
+                new NoSuchElementException(String.format("message with id: %s not found", id))));
+        return a;
     }
 
     @Override
